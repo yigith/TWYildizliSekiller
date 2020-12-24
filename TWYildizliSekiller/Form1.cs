@@ -36,6 +36,29 @@ namespace TWYildizliSekiller
             Sekil7(n, yildiz);
             Sekil8(n, yildiz);
             Sekil9(n, yildiz);
+            Sekil10(n, yildiz);
+        }
+
+        private void Sekil10(int n, string yildiz)
+        {
+            string bosluk = Bosluk(yildiz);
+            int orta = (n + 1) / 2;
+            int yildizAdet, boslukAdet;
+            int genislik = n / 2 == 0 ? n - 1 : n;
+            string sonuc = "";
+
+            for (int i = 1; i <= n; i++)
+            {
+
+                yildizAdet = (i > orta ? n + 1 - i : i) * 2 - 1;
+                boslukAdet = (genislik - yildizAdet) / 2;
+                sonuc += Kere(bosluk, boslukAdet);
+                sonuc += Kere(yildiz, yildizAdet);
+                sonuc += Kere(bosluk, boslukAdet);
+                sonuc += Environment.NewLine;
+            }
+
+            txtSekil10.Text = sonuc;
         }
 
         private void Sekil9(int n, string yildiz)
@@ -184,7 +207,7 @@ namespace TWYildizliSekiller
                 {
                     sonuc += yildiz;
                 }
-                sonuc +=  "\r\n";
+                sonuc += "\r\n";
             }
 
             txtSekil1.Text = sonuc;
